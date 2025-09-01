@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3757331006783597716, guid: 8a99cdb46a6a63a4bb423d10c097040d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.31
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3757331006783597716, guid: 8a99cdb46a6a63a4bb423d10c097040d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -371,6 +371,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fb9179fe7ab1c44da430a81e79ff400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &786182155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7635167956337130843, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
+  m_PrefabInstance: {fileID: 7047453319040384575}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786182142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87f1e128aa67ec49a01f73a59a40b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &994395778 stripped
@@ -1434,7 +1445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3757331006783597716, guid: 8a99cdb46a6a63a4bb423d10c097040d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.45
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3757331006783597716, guid: 8a99cdb46a6a63a4bb423d10c097040d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1579,6 +1590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5180046897025680695, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
+      propertyPath: _playerInput
+      value: 
+      objectReference: {fileID: 786182155}
     - target: {fileID: 8965086226328999576, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.55
@@ -1619,6 +1634,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9140968897432105546, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 786182155}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
