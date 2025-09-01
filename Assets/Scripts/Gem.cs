@@ -6,8 +6,6 @@ public class Gem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Entered Gem");
-
         if (other.TryGetComponent<GemCollector>(out var collector) == false)
             return;
         
