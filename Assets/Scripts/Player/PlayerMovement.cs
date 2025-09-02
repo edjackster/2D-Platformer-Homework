@@ -1,12 +1,9 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    private const float GroundedCheckDistance = 0.1f;
-
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _speed;
     [SerializeField] private PlayerInput playerInput;
@@ -37,12 +34,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnJump()
     {
-        List<RaycastHit2D> hits = new List<RaycastHit2D>();
-        _rigidbody.Cast(Vector2.down, hits, GroundedCheckDistance);
-        
-        bool isGrounded = hits.Count > 0;
-        
-        if(isGrounded)
             _rigidbody.AddForce(Vector2.up * _jumpForce);
     }
 }

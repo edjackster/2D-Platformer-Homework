@@ -8,7 +8,18 @@ public class GemSpawner : MonoBehaviour
 
     private void Awake()
     {
+        Gem gem;
+        
         foreach (var spawnpoint in _gemsSpawnPoint)
-            Instantiate(_gem, spawnpoint.position, Quaternion.identity);
+        {
+            gem = Instantiate(_gem, spawnpoint.position, Quaternion.identity);
+            gem.GemCollected += OnGemCollected;
+        }
+    }
+
+    private void OnGemCollected(Gem gem)
+    {
+        gem.GemCollected -= OnGemCollected;
+        gem.gameObject.SetActive(false);
     }
 }

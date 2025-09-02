@@ -1,34 +1,38 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PatrolMovement), typeof(Flipper))]
+[RequireComponent(typeof(Patroller), typeof(Flipper), typeof(Mover))]
 public class Enemy : MonoBehaviour
 {
-    private PatrolMovement _patrol;
+    private Patroller _patrol;
     private Flipper _flipper;
+    private Mover _mover;
 
     private void Awake()
     {
-        _patrol = GetComponent<PatrolMovement>();
+        _patrol = GetComponent<Patroller>();
         _flipper = GetComponent<Flipper>();
+        _mover = GetComponent<Mover>();
     }
 
-    private void OnEnable()
+    public void Init(List<Transform> targets)
     {
-        _patrol.OnTargetChanged += OnTargetChange;
+        _patrol.SetPatrolPoints(targets);
     }
 
-    private void OnDisable()
+    private void Update()
     {
-        _patrol.OnTargetChanged -= OnTargetChange;
-    }
-
-    public void Init(Transform start, Transform end)
-    {
-        _patrol.SetPatrolPoints(start, end);
-    }
-
-    private void OnTargetChange(Vector3 target)
-    {
-        _flipper.Flip(target.x - transform.position.x);
+        if(_patrol.CurrentTarget is null)
+            return;
+        
+        int direction;
+        
+        if(_patrol.CurrentTarget.position.x - transform.position.x < 0)
+            direction = -1;
+        else
+            direction = 1;
+        
+        _mover.Move(direction);
+        _flipper.Flip(direction);
     }
 }

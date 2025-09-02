@@ -7,8 +7,6 @@ public class PlayerAnimation : MonoBehaviour
     private static readonly int SpeedY = Animator.StringToHash("speedY");
     private static readonly int SpeedX = Animator.StringToHash("speedX");
     
-    [SerializeField] private PlayerInput _playerInput;
-    
     private Rigidbody2D _rigidbody;
     private Animator _animator;
 
@@ -23,18 +21,8 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetFloat(SpeedY, _rigidbody.velocity.y);
     }
 
-    private void OnEnable()
+    public void SetSpeed(float speed)
     {
-        _playerInput.MovementPressed += OnWalkInput;
-    }
-
-    private void OnDisable()
-    {
-        _playerInput.MovementPressed -= OnWalkInput;
-    }
-
-    private void OnWalkInput(float direction)
-    {
-        _animator.SetFloat(SpeedX, Math.Abs(direction));
+        _animator.SetFloat(SpeedX, Math.Abs(speed));
     }
 }
