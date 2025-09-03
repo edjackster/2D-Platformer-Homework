@@ -1,33 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Patroller), typeof(Flipper), typeof(Mover))]
+[RequireComponent(typeof(EnemyBehaviour), typeof(Flipper), typeof(Mover))]
 public class Enemy : MonoBehaviour
 {
-    private Patroller _patrol;
+    private EnemyBehaviour _behaviour;
     private Flipper _flipper;
     private Mover _mover;
 
     private void Awake()
     {
-        _patrol = GetComponent<Patroller>();
+        _behaviour = GetComponent<EnemyBehaviour>();
         _flipper = GetComponent<Flipper>();
         _mover = GetComponent<Mover>();
     }
 
     public void Init(List<Transform> targets)
     {
-        _patrol.SetPatrolPoints(targets);
+        _behaviour.SetPatrolPoints(targets);
     }
 
     private void Update()
     {
-        if(_patrol.CurrentTarget is null)
+        if(_behaviour.CurrentTarget is null)
             return;
         
         int direction;
         
-        if(_patrol.CurrentTarget.position.x - transform.position.x < 0)
+        if(_behaviour.CurrentTarget.position.x - transform.position.x < 0)
             direction = -1;
         else
             direction = 1;

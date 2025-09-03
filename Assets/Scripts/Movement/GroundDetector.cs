@@ -12,8 +12,6 @@ public class GroundDetector : MonoBehaviour
     private Rigidbody2D _rigidbody;
     
     public bool IsGrounded { get; private set; }
-
-    public event Action<bool> GroundedChange;
     
     private void Awake()
     {
@@ -30,7 +28,6 @@ public class GroundDetector : MonoBehaviour
         if (isGround == IsGrounded)
             return;
         
-        GroundedChange?.Invoke(IsGrounded);
         IsGrounded = isGround;
     }
 }

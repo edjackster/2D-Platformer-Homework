@@ -13,8 +13,6 @@ public class Patroller : MonoBehaviour
 
     [CanBeNull] public Transform CurrentTarget { get; private set; }
 
-    public event Action<Transform> OnTargetChanged;
-
     private void Update()
     {
         if (CurrentTarget is null)
@@ -39,6 +37,5 @@ public class Patroller : MonoBehaviour
     {
         _currentTargetIndex = ++_currentTargetIndex % _targets.Count;
         CurrentTarget = _targets[_currentTargetIndex];
-        OnTargetChanged?.Invoke(CurrentTarget);
     }
 }
