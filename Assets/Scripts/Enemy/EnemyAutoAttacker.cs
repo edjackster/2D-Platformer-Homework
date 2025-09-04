@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyAttacker : Attacker
+public class EnemyAutoAttacker : MonoBehaviour
 {
-    [SerializeField] protected float _attackCoolDown = 0.5f;
+    [SerializeField] private float _attackCoolDown = 0.5f;
+    [SerializeField] private Attacker _attacker;
     
     private bool _canAttack = true;
     
@@ -24,13 +25,13 @@ public class EnemyAttacker : Attacker
         _canAttack = true;
     }
 
-    protected override void Attack(IDamagable damagable)
+    private void Attack(IDamagable damagable)
     {
         if (_canAttack == false)
             return;
         
         _canAttack = false;
-        base.Attack(damagable);
+        _attacker.Attack(damagable);
         StartCoroutine(WaitCoolDown());
     }
 }

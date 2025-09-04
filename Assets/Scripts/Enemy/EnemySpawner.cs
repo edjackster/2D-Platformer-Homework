@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private List<EnemySpawnPoint> spawnPoints;
+    [SerializeField] private List<EnemySpawnPoint> _spawnPoints;
 
     private void Awake()
     {
-        foreach (var spawnPoint in spawnPoints)
+        foreach (var spawnPoint in _spawnPoints)
         {
             spawnPoint.Spawn();
         }

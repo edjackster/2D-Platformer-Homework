@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GroundDetector _groundDetector;
     [SerializeField] private Mover _mover;
     [SerializeField] private PlayerAnimation _animator;
-    [SerializeField] private PlayerAttacker _attacker;
-    [SerializeField] private Health _health;
+    [SerializeField] private PlayerMeleeAttacker _attacker;
+    [SerializeField] private HealthSystem _health;
     
     private Flipper _flipper;
 

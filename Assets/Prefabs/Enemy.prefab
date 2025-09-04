@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 868500318597221739}
   - component: {fileID: 8347162166385633898}
   - component: {fileID: 33167158796113921}
+  - component: {fileID: 975933365863095993}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -286,8 +287,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58edd0f44c63d9e48ab83f468e167f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _health: 100
+  _maxHealthPoints: 100
+  _healthPoints: 100
+--- !u!114 &975933365863095993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44954960107107791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6828d23bd871df4e825b2460a611c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
 --- !u!1 &9123611738066906571
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,8 +347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e8a270e6d0a26479b4a93fa85dd1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
   _attackCoolDown: 0.5
+  _attacker: {fileID: 975933365863095993}
 --- !u!58 &1196633706727852955
 CircleCollider2D:
   m_ObjectHideFlags: 0
