@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Flipper))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput;
@@ -9,13 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerAnimation _animator;
     [SerializeField] private PlayerMeleeAttacker _attacker;
     [SerializeField] private HealthSystem _health;
-    
-    private Flipper _flipper;
-
-    private void Awake()
-    {
-        _flipper = GetComponent<Flipper>();
-    }
+    [SerializeField] private Flipper _flipper;
 
     private void OnEnable()
     {

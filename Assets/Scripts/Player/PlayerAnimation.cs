@@ -1,20 +1,20 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerAnimation : MonoBehaviour
 {
     private static readonly int SpeedY = Animator.StringToHash("speedY");
     private static readonly int SpeedX = Animator.StringToHash("speedX");
     private static readonly int Hurt = Animator.StringToHash("hurt");
     
+    [SerializeField] private Animator _animator;
+    
     private Rigidbody2D _rigidbody;
-    private Animator _animator;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
     }
 
     private void Update()

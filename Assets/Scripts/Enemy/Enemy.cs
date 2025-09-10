@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyBehaviour), typeof(Flipper), typeof(Mover))]
+[RequireComponent(typeof(EnemyBehaviour), typeof(Mover))]
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private Flipper _flipper;
+    
     private EnemyBehaviour _behaviour;
-    private Flipper _flipper;
     private Mover _mover;
 
     private void Awake()
     {
         _behaviour = GetComponent<EnemyBehaviour>();
-        _flipper = GetComponent<Flipper>();
         _mover = GetComponent<Mover>();
     }
 
