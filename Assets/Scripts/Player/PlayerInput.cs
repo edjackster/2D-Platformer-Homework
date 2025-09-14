@@ -9,11 +9,15 @@ public class PlayerInput : MonoBehaviour
     public event Action JumpPressed;
     public event Action<float> MovementPressed;
     public event Action AttackPressed;
+    public event Action VampireAttackPressed;
 
     private void Update()
     {
         if (Input.GetButtonDown(JumpButton))
             JumpPressed?.Invoke();
+        
+        if (Input.GetMouseButtonDown(1))
+            VampireAttackPressed?.Invoke();
         
         if (Input.GetMouseButtonDown(0))
             AttackPressed?.Invoke();

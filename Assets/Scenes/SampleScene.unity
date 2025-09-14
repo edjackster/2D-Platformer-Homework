@@ -696,7 +696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1872292585}
   - component: {fileID: 1872292584}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 1881245862}
   - component: {fileID: 1881245861}
   - component: {fileID: 1881245860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1740,10 +1740,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 891891076738352635, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2471553989893042475, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1752,29 +1748,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2471553989893042475, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3394604899472770621, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3471080093919559437, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5259126277581599585, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6397569024342829271, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785796897693603324, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 6821378982915446177, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8965086226328999576, guid: 8ee8b3b9dd14f304c81dc95d4e3fc467, type: 3}
       propertyPath: m_LocalPosition.x

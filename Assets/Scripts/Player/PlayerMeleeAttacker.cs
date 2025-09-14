@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMeleeAttacker : MonoBehaviour
+public class PlayerMeleeAttacker : Attacker
 {
     [SerializeField] private float _attackCoolDown = 0.5f;
     [SerializeField] private float _attackRange = 1f;
-    [SerializeField] private Attacker _attacker;
     
     private bool _canAttack = true;
 
@@ -26,7 +25,7 @@ public class PlayerMeleeAttacker : MonoBehaviour
         
         foreach (IDamagable damagable in damagables)
         {
-            _attacker.Attack(damagable);
+            Attack(damagable);
         }
 
         StartCoroutine(WaitCoolDown());

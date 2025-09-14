@@ -18,7 +18,7 @@ public class HealthSmoothSliderView : HealthView
         _slider = GetComponent<Slider>();
     }
 
-    protected override void UpdateView(int health)
+    protected override void UpdateView(float health)
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
@@ -26,11 +26,11 @@ public class HealthSmoothSliderView : HealthView
         _coroutine = StartCoroutine(SmoothUpdateSlider(health));
     }
 
-    private IEnumerator SmoothUpdateSlider(int health)
+    private IEnumerator SmoothUpdateSlider(float health)
     {
         var wait = new WaitForSeconds(StepDuration);
         var stepsCount = _changeDuration / StepDuration;
-        var sliderEndValue = (float)health / HealthSystem.MaxHealthPoints;
+        var sliderEndValue = health / HealthSystem.MaxHealthPoints;
         var step = Math.Abs((sliderEndValue - _slider.value) / stepsCount);
 
         for (var i = 0; i < stepsCount; i++)

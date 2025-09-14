@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyAutoAttacker : MonoBehaviour
+public class EnemyAutoAttacker : Attacker
 {
     [SerializeField] private float _attackCoolDown = 0.5f;
     [SerializeField] private Attacker _attacker;
@@ -16,7 +16,7 @@ public class EnemyAutoAttacker : MonoBehaviour
         if (other.TryGetComponent(out IDamagable damagable) == false)
             return;
         
-        Attack(damagable);
+        AutoAttack(damagable);
     }
     
     private IEnumerator WaitCoolDown()
@@ -25,13 +25,14 @@ public class EnemyAutoAttacker : MonoBehaviour
         _canAttack = true;
     }
 
-    private void Attack(IDamagable damagable)
+    private void AutoAttack(IDamagable damagable)
     {
         if (_canAttack == false)
             return;
         
         _canAttack = false;
-        _attacker.Attack(damagable);
+        
+        Attack(damagable);
         StartCoroutine(WaitCoolDown());
     }
 }

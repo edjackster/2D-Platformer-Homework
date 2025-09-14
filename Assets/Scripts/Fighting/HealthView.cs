@@ -16,5 +16,5 @@ public abstract class HealthView : MonoBehaviour
         HealthSystem.HealthChanged -= UpdateView;
     }
 
-    protected abstract void UpdateView(int health);
+    protected abstract void UpdateView(float health);
 }
