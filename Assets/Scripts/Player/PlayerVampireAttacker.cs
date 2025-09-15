@@ -14,6 +14,8 @@ public class PlayerVampireAttacker : PeriodicAttacker
 
     public event Action AttackStarted;
     public event Action AttackEnded;
+    public event Action<float> AttackStay;
+    public event Action<float> AttackCoolDown;
 
     public void Attack()
     {
@@ -30,17 +32,18 @@ public class PlayerVampireAttacker : PeriodicAttacker
     {
         var wait = new WaitForSeconds(Tick);
         int stepsCount = Mathf.CeilToInt(_attackDuration / Tick);
-        
+
         HealthSystem damagable;
-        
+
         for (int i = 0; i < stepsCount; i++)
         {
-            if(_aura.TryGetNearestEnemy(out damagable))
+            if (_aura.TryGetNearestEnemy(out damagable))
             {
                 Attack(damagable);
-                _health.Heal(Damage *  _vampirismPercent);
+                _health.Heal(Damage * _vampirismPercent);
             }
-            
+
+            AttackStay?.Invoke(1 - (float)i / stepsCount);
             yield return wait;
         }
 
@@ -50,7 +53,16 @@ public class PlayerVampireAttacker : PeriodicAttacker
 
     private IEnumerator WaitCoolDown()
     {
-        yield return new WaitForSeconds(_attackCoolDown);
+        var wait = new WaitForSeconds(Tick);
+        int stepsCount = Mathf.CeilToInt(_attackCoolDown / Tick);
+
+        for (int i = 0; i < stepsCount; i++)
+        {
+            yield return wait;
+            AttackCoolDown?.Invoke((float)i / stepsCount);
+        }
+
+        AttackCoolDown?.Invoke(1);
         _canAttack = true;
     }
 }
