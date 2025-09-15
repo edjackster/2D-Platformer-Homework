@@ -30,17 +30,18 @@ public class VampireAura : MonoBehaviour
         if (_damagables.Count == 0)
             return false;
 
+        int firstIndex = 0;
+        nearestDamagable = _damagables[firstIndex];
+        float nearestDistance = (transform.position - nearestDamagable.transform.position).sqrMagnitude;
+
         foreach (var damagable in _damagables)
         {
-            if (nearestDamagable is null)
-                nearestDamagable = damagable;
-
-            float nearestDistance = Vector2.Distance(transform.position, nearestDamagable.transform.position);
-            float distance = Vector2.Distance(transform.position, damagable.transform.position);
+            float distance = (transform.position - damagable.transform.position).sqrMagnitude;
 
             if (nearestDistance < distance)
             {
                 nearestDamagable = damagable;
+                nearestDistance = (transform.position - nearestDamagable.transform.position).sqrMagnitude;
             }
         }
 

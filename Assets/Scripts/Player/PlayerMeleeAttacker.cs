@@ -8,6 +8,7 @@ public class PlayerMeleeAttacker : Attacker
     [SerializeField] private float _attackRange = 1f;
     
     private bool _canAttack = true;
+    private RaycastHit2D[] _hits;
 
     private void OnDrawGizmos()
     {
@@ -33,12 +34,12 @@ public class PlayerMeleeAttacker : Attacker
 
     private List<IDamagable> GetAllDamagables()
     {
-        var hits = Physics2D.CircleCastAll(transform.position, _attackRange, Vector2.zero);
+        Physics2D.CircleCastNonAlloc(transform.position, _attackRange, Vector2.zero, _hits);
 
         var damagables = new List<IDamagable>();
         IDamagable damagable;
         
-        foreach (var hit in hits)
+        foreach (var hit in _hits)
         {
             if(hit.transform.TryGetComponent<Enemy>(out _) == false)
                 continue;

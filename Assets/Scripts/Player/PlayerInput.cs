@@ -5,6 +5,8 @@ public class PlayerInput : MonoBehaviour
 {
     private const string HorizontalAxis = "Horizontal";
     private const string JumpButton = "Jump";
+    private const int LeftMouseButton = 0;
+    private const int RightMouseButton = 1;
     
     public event Action JumpPressed;
     public event Action<float> MovementPressed;
@@ -16,10 +18,10 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetButtonDown(JumpButton))
             JumpPressed?.Invoke();
         
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(RightMouseButton))
             VampireAttackPressed?.Invoke();
         
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(LeftMouseButton))
             AttackPressed?.Invoke();
 
         var movement = Input.GetAxis(HorizontalAxis); 

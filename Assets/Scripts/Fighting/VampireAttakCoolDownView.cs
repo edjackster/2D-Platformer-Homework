@@ -20,10 +20,5 @@ public class VampireAttakCoolDownView : MonoBehaviour
     
     private void OnCoolDownChange(float percent){
         _slider.value = percent;
-        
-        if(Mathf.Approximately(_slider.value, _slider.maxValue))
-            _slider.gameObject.SetActive(false);
-        else if(_slider.gameObject.activeSelf == false)
-            _slider.gameObject.SetActive(true);
     }
 }
